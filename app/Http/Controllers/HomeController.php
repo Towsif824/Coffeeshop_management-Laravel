@@ -54,8 +54,6 @@ class HomeController extends Controller
     }
 
     function edit($id){
-
-
         $user = User::find($id);
     	return view('home.edit')->with('user', $user);
 
@@ -68,11 +66,19 @@ class HomeController extends Controller
         $user->name         = $request->name;
         $user->username     = $request->username;
         $user->password     = $request->password;
-        $user->phone         = $request->phone;
-        $user->email         = $request->email;
-        $user->address         = $request->address;
-        $user->image         = $request->image;
-        $user->membership         = $request->membership;
+        $user->phone        = $request->phone;
+        $user->email        = $request->email;
+        $user->address      = $request->address;
+        $user->membership   = $request->membership;
+        if (request()->hasFile('image')) {
+        $file = request()->file('image');
+//            dd($file);
+        $extension = $file->getClientOriginalExtension();
+        $filename = time().'.'. $extension;
+        $file->move('img/profile/', $filename);
+        $user->image =$filename;
+        $user->save();
+    }
 
         $user->save();
 

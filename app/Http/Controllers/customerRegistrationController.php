@@ -7,6 +7,7 @@ use Validator,Redirect,Response;
 Use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 class customerRegistrationController extends Controller
@@ -55,9 +56,9 @@ class customerRegistrationController extends Controller
         $file = request()->file('image');
 //            dd($file);
         $extension = $file->getClientOriginalExtension();
-        $filename = $user->first_name . $user->last_name . '_' . $user->id . '.' . $extension;
+        $filename = time().'.'. $extension;
         $file->move('img/profile/', $filename);
-        $user->image = 'http://127.0.0.1/img/profile/'.$filename;
+        $user->image =$filename;
         $user->save();
     }
     return $user;
