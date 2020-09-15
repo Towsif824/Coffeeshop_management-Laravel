@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
-Use App\User;
+Use App\Customer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +40,7 @@ class customerRegistrationController extends Controller
 
     protected function create(array $data)
     {
-        $user = User::create([
+        $user = Customer::create([
             'name' => $data['name'],
             'username' => $data['username'],
             'password' =>$data['password'],

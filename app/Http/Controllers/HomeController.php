@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Customer;
+use App\Food;
 use Illuminate\Support\Facades\DB;
 
 //use Validator;
@@ -54,7 +55,7 @@ class HomeController extends Controller
     }
 
     function edit($id){
-        $user = User::find($id);
+        $user = Customer::find($id);
     	return view('home.edit')->with('user', $user);
 
     }
@@ -62,7 +63,7 @@ class HomeController extends Controller
     function update($id, Request $request){
 
 
-        $user = User::find($id);
+        $user = Customer::find($id);
         $user->name         = $request->name;
         $user->username     = $request->username;
         $user->password     = $request->password;
@@ -89,7 +90,7 @@ class HomeController extends Controller
     function delete($id){
 
     	
-        $user = User::find($id);
+        $user = Customer::find($id);
         return view('home.delete')->with('user', $user);
 
     }
@@ -97,7 +98,7 @@ class HomeController extends Controller
     function destroy($id, Request $request){
     	
     	
-        if(User::destroy($id)){
+        if(Customer::destroy($id)){
             return redirect()->route('home.index');
         }else{
             return redirect()->route('home.delete', $id);
@@ -106,8 +107,14 @@ class HomeController extends Controller
 
     public function profile($id)
     {
-        $user = User::find($id);
+        $user = Customer::find($id);
         return view('home.profile')->with('user', $user);
+    }
+
+    public function menu(Request $request)
+    {
+        $foods = Food::all();
+        return view('home.food', compact('foods'));
     }
 
 }

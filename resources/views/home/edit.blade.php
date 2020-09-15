@@ -1,3 +1,4 @@
+@extends('welcome')
 <!DOCTYPE html>
 <html>
 <head>
