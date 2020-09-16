@@ -14,7 +14,7 @@ class CartController extends Controller
     	'id' => $food->id,
     	'name' => $food->name,
     	'price' => $food->price,
-    	'quantity' => 4,
+    	'quantity' => 1,
     	'attributes' => array(),
     	'associatedModel' => $food
 		));
