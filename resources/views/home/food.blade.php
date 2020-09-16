@@ -41,6 +41,9 @@
     				<th>Ingredients</th>
     				<td>{{ $food->ingredients }}</td>
     			</tr>
+    			<tr>
+    				<td><a href="{{route('cart.add', $food->id)}}" class="btn btn-dark">Add cart</a></td>
+    			</tr>
 		</table>
 	</fieldset>
 	@endforeach

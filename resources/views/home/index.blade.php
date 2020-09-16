@@ -54,7 +54,7 @@
 	
 	
 	<table align="center">
-		
+		<tr><td colspan="2"><img src="{{asset('img/profile/'.$users->image) }}" style="width:300px; height:300px; float:top; border-radius:90%; margin-right:0px;"></td></tr>
 		<tr>
 			<td>Name</td>
 			<td>{{$users->name}}</td></tr>
@@ -83,7 +83,7 @@
 			<td>{{$users->membership}}</td>
 		</tr>
 		</tr>
-		<tr><td><a href="{{route('home.edit',$users->c_id)}}" class="btn btn-dark">Edit</a></td></tr>
+		<tr><td colspan="2"><br><a href="{{route('home.edit',$users->c_id)}}" class="btn btn-dark">Edit</a></td></tr>
 	</table>
 </form>
 </div>
