@@ -45,6 +45,8 @@ Route::middleware(['sess'])->group(function(){
 		Route::post('/home/delete/{id}', 'HomeController@destroy');
 		Route::get('/home/profile/{id}', 'HomeController@profile')->name('home.profile');
 		Route::get('/menu/food', 'HomeController@menu')->name('home.food');
+		//cart
+		Route::get('/cart', 'CartController@index')->name('cart.index');
 		Route::get('/cart/{food}', 'CartController@add')->name('cart.add');
 
 });
