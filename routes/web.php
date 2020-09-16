@@ -48,6 +48,8 @@ Route::middleware(['sess'])->group(function(){
 		//cart
 		Route::get('/cart', 'CartController@index')->name('cart.index');
 		Route::get('/cart/{food}', 'CartController@add')->name('cart.add');
+		Route::get('/cart/destroy/{id}', 'CartController@destroy')->name('cart.destroy');
+		Route::get('/cart/update/{id}', 'CartController@update')->name('cart.update');
 
 });
 

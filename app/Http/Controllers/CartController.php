@@ -26,4 +26,20 @@ class CartController extends Controller
     	$carts = \Cart::getContent();
     	return view('cart.index',compact('carts'));
     }
+
+    public function destroy($id)
+    {
+    	\Cart::remove($id);
+    	return back();
+    }
+    public function update($id)
+    {
+    	\Cart::update($id,[
+		'quantity' => array(
+		'relative' => false,
+		'value'=> request('quantity')
+		)
+		]);
+    	return back();
+    }
 }

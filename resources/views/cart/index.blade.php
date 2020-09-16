@@ -14,14 +14,26 @@
 			<th>Name</th>
 			<th>price</th>
 			<th>Quantity</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach($carts as $cart)
 		<tr>
 			<td>{{$cart->name}}</td>
-			<td>{{$cart->price}}</td>
-			<td>{{$cart->quantity}}</td>
+			<td>
+				{{Cart::get($cart->id)->getPriceSum()}}
+			</td>
+			<td>
+				<form action="{{route('cart.update',$cart->id)}}">
+
+					<input type="number" name="quantity" value="{{$cart->quantity}}">
+					<input type="submit" value="Save">
+				</form>	
+			</td>
+			<td>
+				<a href="{{route('cart.destroy',$cart->id)}}">Delete</a>
+			</td>
 		</tr>
 		@endforeach
 	</tbody>
