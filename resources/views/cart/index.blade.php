@@ -1,6 +1,5 @@
 @extends('welcome')
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Cart</title>
@@ -63,7 +62,7 @@
 			</td>
 			<td >
 				<form action="{{route('cart.update',$cart->id)}}">
-
+				{{csrf_field()}}
 					<input type="number" name="quantity"  value="{{$cart->quantity}}">
 					<input type="submit" value="Save" min="1" max="100">
 				</form>	
@@ -75,8 +74,7 @@
 		@endforeach
 	</tbody>
 </table>
-<h2 class="total">Total Price: {{Cart::getSubTotal()}}</h2>
-	
-
+<h2 class="total">Total Price: {{Cart::getSubTotal()}}</h2>	
+<a href="{{ route('cart.checkout') }}" class="btn btn-primary" role="button">CheckOut</a>
 </body>
 </html>

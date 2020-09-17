@@ -47,9 +47,15 @@ Route::middleware(['sess'])->group(function(){
 		Route::get('/menu/food', 'HomeController@menu')->name('home.food');
 		//cart
 		Route::get('/cart', 'CartController@index')->name('cart.index');
+		Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
 		Route::get('/cart/{food}', 'CartController@add')->name('cart.add');
 		Route::get('/cart/destroy/{id}', 'CartController@destroy')->name('cart.destroy');
 		Route::get('/cart/update/{id}', 'CartController@update')->name('cart.update');
+
+		Route::resource('orders', 'OrderController');
+		
+		
+
 
 });
 
