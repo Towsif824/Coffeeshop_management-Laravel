@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Customer;
 use Illuminate\Http\Request;
+
 
 class OrderController extends Controller
 {
@@ -35,7 +37,48 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $request->validate([
+            'shipping_name'     =>'required',
+            'shipping_address'  =>'required',
+            'shipping_city'     =>'required',
+            'shipping_phone'    =>'required',
+            'shipping_notes'    =>'required'
+        ]);
+
+        $order = new Order();
+
+        $order->order_number = uniqid('OrderNumber-');
+
+        $order->shipping_name = $request->input('shipping_name');
+        $order->shipping_address = $request->input('shipping_address');
+        $order->shipping_city = $request->input('shipping_city');
+        $order->shipping_phone = $request->input('shipping_phone');
+        $order->shipping_notes = $request->input('shipping_notes');
+
+        $order->grand_total=\Cart::getSubTotal();
+        $order->item_count = \Cart::getContent()->count();
+
+        $order->user = session()->get('username');
+        $order->save();
+
+        //dd('order created',$order);
+
+        $cartItems = \Cart::getContent();
+
+        foreach($cartItems as $item){
+            $order->items()->attach($item->id,[
+                'price'=>$item->price, 
+                'quantity'=> $item->quantity
+            ]);
+        }
+
+        \Cart::clear();
+
+        return "order place, thank you for buying";
+
+
+
     }
 
     /**
