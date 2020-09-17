@@ -32,9 +32,13 @@ class CartController extends Controller
     	\Cart::remove($id);
     	return back();
     }
-    public function update($id)
+    public function update(Request $request,$id)
     {
+        
     	\Cart::update($id,[
+            $request->validate([
+            'quantity'=>'required|numeric|gt:1'
+        ]),
 		'quantity' => array(
 		'relative' => false,
 		'value'=> request('quantity')
