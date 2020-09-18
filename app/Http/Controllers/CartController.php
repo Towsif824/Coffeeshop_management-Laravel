@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Food;
+use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -50,5 +52,30 @@ class CartController extends Controller
     public function checkout()
     {
         return view('cart.checkout');
+    }
+
+    public function export(Request $request)
+    {
+        $data = DB::table('orders')->where('user',$request->session()->get('username'))->first();
+        $proData="";
+        if(count((array)$data)>0){
+            $proData .='<table align="center">
+            ';
+
+            foreach ($data as $key=>$item) {
+                 $proData .='
+                 <tr>
+                 <td>'.$key.'</td>
+                 <td align="center">'.$item.'</td>
+                 </tr>';
+            }
+            $proData .='</table>';
+        }
+        header('Content-Type: application/xls');
+        header('Content-Disposition: attachment; filename=checkout.xls');
+        echo $proData;
+        //var_dump($data);
+        //echo count($data);
+        //return response()->json($data);
     }
 }

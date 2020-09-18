@@ -43,6 +43,7 @@
 <br>
 <body>
 	<h2>Cart</h2>
+	<a href="/export" class="btn btn-primary">Download</a>
 <div class="cart-list">
 <table class="table">
 	<thead class="thead-primary">
