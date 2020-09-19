@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Laravel\Socialite\Facades\Socialite;
+
 
 
 
@@ -34,4 +36,29 @@ class LoginController extends Controller
             return redirect()->route('login.index');
         }
     }
+
+     /*public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    /*public function handleProviderCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        $token = $user->token;
+        $user->getId();
+        $user->getNickname();
+        $user->getName();
+        $user->getEmail();
+        $user->getAvatar();
+        dd($user);
+
+        // $user->token;
+    }*/
 }

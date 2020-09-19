@@ -58,6 +58,7 @@
 				<td></td>
 				<td><input type="submit" name="submit" value="Submit"></td>
 			</tr>
+      <tr><td><a href="/login/facebook" class="btn bg-dark">Facebook</td></tr>
 		</table>
 		</fieldset>
 	</form>

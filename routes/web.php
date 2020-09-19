@@ -20,6 +20,10 @@ Route::get('/welcome', function(){
 });
 Route::get('/register', 'customerRegistrationController@registration')->name('customerRegistration.registration');
 Route::post('/register', 'customerRegistrationController@postRegistration')->name('customerRegistration.registration');
+
+Route::get('/login/facebook', 'LoginController@redirectToProvider');
+Route::get('/login/facebook/callback', 'LoginController@handleProviderCallback');
+
 Route::get('/login', 'LoginController@index')->name('login.index');
 Route::post('/login', ['uses'=>'LoginController@verify']);
 Route::get('/logout', ['as'=>'logout.index', 'uses'=>'logoutController@index']);
@@ -50,10 +54,14 @@ Route::middleware(['sess'])->group(function(){
 		Route::get('/cart', 'CartController@index')->name('cart.index');
 		Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
 		Route::get('/cart/{food}', 'CartController@add')->name('cart.add');
+
 		Route::get('/cart/destroy/{id}', 'CartController@destroy')->name('cart.destroy');
 		Route::get('/cart/update/{id}', 'CartController@update')->name('cart.update');
 
 		Route::resource('orders', 'OrderController');
+		//Route::post('comments/food_id', ['uses'=>'CommentController@store','as'=>'comment.store']);
+		Route::get('/comment/{id}', 'CommentController@create')->name('cart.comment');
+		Route::post('/comment/{id}', 'CommentController@store');
 		
 		
 

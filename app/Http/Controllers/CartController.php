@@ -78,4 +78,5 @@ class CartController extends Controller
         //echo count($data);
         //return response()->json($data);
     }
+    
 }

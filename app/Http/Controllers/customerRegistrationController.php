@@ -26,7 +26,7 @@ class customerRegistrationController extends Controller
         'phone' => 'required|string|unique:customers',
         'email' => 'required|email|unique:customers',
         'address' => 'required|string|max:200',
-        'image' => 'required|mimes:jpge,jpg,png|max:5000',
+        'image' => 'required|mimes:jpeg,jpg,png|max:5000',
         'membership' => 'string|min:4',
         
         ]);

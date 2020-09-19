@@ -44,6 +44,9 @@
     			<tr>
     				<td><a href="{{route('cart.add', $food->id)}}" class="btn btn-dark">Add cart</a></td>
     			</tr>
+    			<tr>
+    				<td><a href="{{route('cart.comment', $food->id)}}" class="btn btn-dark">Comment</a></td>
+    			</tr>
 		</table>
 	</fieldset>
 	@endforeach
