@@ -127,6 +127,33 @@ class HomeController extends Controller
        return view('search.search')->with(['food'=>$food]);
      }
 
+     public function download($id)
+    {
+        $data = Food::all();
+        $proData="";
+        if(count((array)$data)>0){
+            $proData .='<table align="center">
+            <tr>
+                 <th align="center" style="background-color:brown">'."Number".'</th>
+                 <th align="center" style="background-color:brown">'."Name".'</th>
+                 <th align="center"style="background-color:brown; width:130px; height:30px;">'."Price".'</th>
+                 </tr>';
+
+            foreach ($data as $key=>$item) {
+                 $proData .='
+                 <tr>
+                 <td align="center" style="width:130px;">'.$item->id.'</td>
+                 <td align="center" style="width:130px;">'.$item->name.'</td>
+                 <td align="center" style="width:130px;">'.$item->price.'</td>
+                 </tr>';
+            }
+            $proData .='</table>';
+        }
+        header('Content-Type: application/xls');
+        header('Content-Disposition: attachment; filename=menu.xls');
+        echo $proData;
+    }
+
 
     
 
