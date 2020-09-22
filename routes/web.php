@@ -22,12 +22,12 @@ Route::get('/welcome', function(){
 Route::get('/register', 'customerRegistrationController@registration')->name('customerRegistration.registration');
 Route::post('/register', 'customerRegistrationController@postRegistration')->name('customerRegistration.registration');
 
-Route::get('/fb', 'WebController@fbtn');
+/*Route::get('/fb', 'WebController@fbtn');
 Route::get('/fbsub', 'WebController@fbsubmit');
-Route::get('/fbres', 'WebController@fbres');
+Route::get('/fbres', 'WebController@fbres');*/
 
-//Route::get('login/facebook', 'LoginController@redirectToProvider');
-//Route::get('login/facebook/callback', 'LoginController@handleProviderCallback');
+Route::get('login/facebook', 'LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'LoginController@handleProviderCallback');
 
 
 Route::get('/login', 'LoginController@index')->name('login.index');
@@ -46,7 +46,7 @@ Route::get('/logout', ['as'=>'logout.index', 'uses'=>'logoutController@index']);
 
 Route::middleware(['sess'])->group(function(){
 
-	Route::get('/xyz', 'HomeController@index')->name('home.index');
+	Route::get('/userProfile', 'HomeController@index')->name('home.index');
 
 		Route::get('/admin/create', 'HomeController@create')->name('home.create');
 		Route::post('/admin/create', 'HomeController@store');

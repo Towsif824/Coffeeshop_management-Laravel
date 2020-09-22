@@ -13,7 +13,7 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="{{('/')}}" class="nav-link">Home</a></li>
+            <li class="nav-item active"><a href="{{route('home.index')}}" class="nav-link">Profile</a></li>
             <li class="nav-item"><a href="{{route('home.food')}}" class="nav-link">Menu</a></li>
             <li class="nav-item"><a href="{{('register')}}" class="nav-link">Register</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>

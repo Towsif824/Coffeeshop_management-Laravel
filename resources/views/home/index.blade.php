@@ -14,11 +14,8 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="{{('/')}}" class="nav-link">Home</a></li>
+            <li class="nav-item active"><a href="{{route('home.index')}}" class="nav-link">Profile</a></li>
             <li class="nav-item"><a href="{{route('home.food')}}" class="nav-link">Menu</a></li>
-            <li class="nav-item"><a href="{{('register')}}" class="nav-link">Register</a></li>
-            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -29,7 +26,7 @@
               </div>
             </li>
             <li class="nav-item"><a href="{{route('logout.index')}}" class="nav-link">LogOut</a></li>
-            <li class="nav-item cart"><a href="cart.html" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li>
+            <li class="nav-item cart"><a href="{{route('cart.index')}}" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>{{Cart::getContent()->count()}}</small></span></a></li>
           </ul>
         </div>
       </div>
@@ -43,10 +40,6 @@
 <br>
 <div class="p-3 mb-2 bg-primary text-white">
 	<h1>Welcome home! {{$users->username}}</h1>
-
-	<a href="{{route('logout.index')}}" class="btn btn-dark" style="float:right;"> logout</a>
-	<a href="{{route('home.create')}}" class="btn btn-dark" style="float:right;">Create User</a> 
-	<a href="{{route('home.food')}}" class="btn btn-dark" style="float:right;">Menu</a>
 
 <form method="post" enctype="multipart/form-data" align="center" >
 	@csrf
@@ -84,9 +77,6 @@
 		</tr>
 		</tr>
 		<tr><td colspan="2"><br><a href="{{route('home.edit',$users->c_id)}}" class="btn btn-dark">Edit</a></td></tr>
-		<tr>
-   			<td><a href="/foodsearch" class="btn btn-dark">Search</a></td>
-    	</tr>
 	</table>
 </form>
 </div>

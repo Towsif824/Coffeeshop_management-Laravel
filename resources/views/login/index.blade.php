@@ -23,7 +23,7 @@
               </div>
             </li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-            <li class="nav-item cart"><a href="cart.html" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>1</small></span></a></li>
+            <li class="nav-item cart"><a href="{{route('cart.index')}}" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>{{Cart::getContent()->count()}}</small></span></a></li>
           </ul>
         </div>
       </div>
@@ -58,7 +58,7 @@
 				<td></td>
 				<td><input type="submit" name="submit" value="Submit"></td>
 			</tr>
-      <tr><td><a href="fbsub" class="btn bg-dark">Facebook</td></tr>
+      <tr><td><a href="login/facebook/callback" class="btn bg-dark">Facebook</td></tr>
 		</table>
 		</fieldset>
 	</form>

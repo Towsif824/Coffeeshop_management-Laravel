@@ -44,7 +44,7 @@ class OrderController extends Controller
             'shipping_address'  =>'required',
             'shipping_city'     =>'required',
             'shipping_phone'    =>'required',
-            'shipping_notes'    =>'required'
+            'shipping_notes'    =>'required',
         ]);
 
         $order = new Order();
@@ -91,10 +91,6 @@ class OrderController extends Controller
                 'quantity'=> $item->quantity
             ]);
         }
-
-        
-
-
 
         \Cart::clear();
 

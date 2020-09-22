@@ -16,7 +16,7 @@ return [
     'facebook' => [
     'client_id' => "758141685029681",
     'client_secret' => "71b202cdfbb439aa0c17e5f07d095160",
-    'redirect' => 'http://localhost:3000/fbres',
+    'redirect' => "http://localhost:3000/login/facebook/callback",
     ],
 
     'mailgun' => [
