@@ -117,4 +117,17 @@ class HomeController extends Controller
         return view('home.food', compact('foods'));
     }
 
+      public function search($id){
+
+
+        $userinfo = Food::all();
+        $food = Food::where('name','like','%'.$id.'%')
+       ->get();
+       //return response()->json(array('food'=> $food), 200);
+       return view('search.search')->with(['food'=>$food]);
+     }
+
+
+    
+
 }

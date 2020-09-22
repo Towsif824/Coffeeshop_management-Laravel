@@ -51,5 +51,8 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
+$app->register(Fruitcake\Cors\CorsServiceProvider::class);
+
+
 
 return $app;

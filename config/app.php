@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         Darryldecode\Cart\CartServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
         /*
          * Application Service Providers...

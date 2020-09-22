@@ -56,7 +56,7 @@ class CartController extends Controller
 
     public function export(Request $request)
     {
-        $data = DB::table('orders')->where('user',$request->session()->get('username'))->first();
+        $data = DB::table('orders')->where('user',$request->session()->get('username'))->orderBy('id','DESC')->first();
         $proData="";
         if(count((array)$data)>0){
             $proData .='<table align="center">

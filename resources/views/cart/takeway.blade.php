@@ -1,5 +1,5 @@
 @extends('welcome')
-<h2>Checkout</h2>
+<h2>Take Away</h2>
 
 <h3>Order Information</h3>
 <form action="{{route('orders.store')}}" method="post">

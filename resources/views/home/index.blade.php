@@ -84,6 +84,9 @@
 		</tr>
 		</tr>
 		<tr><td colspan="2"><br><a href="{{route('home.edit',$users->c_id)}}" class="btn btn-dark">Edit</a></td></tr>
+		<tr>
+   			<td><a href="/foodsearch" class="btn btn-dark">Search</a></td>
+    	</tr>
 	</table>
 </form>
 </div>

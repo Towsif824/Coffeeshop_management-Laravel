@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\Customer;
+use App\Takeaway;
 use Illuminate\Http\Request;
 
 
@@ -62,6 +63,24 @@ class OrderController extends Controller
         $order->user = session()->get('username');
         $order->save();
 
+        $take = new Takeaway();
+
+        $take->order_number = uniqid('OrderNumber-');
+
+        $take->shipping_name = $request->input('shipping_name');
+        $take->shipping_address = $request->input('shipping_address');
+        $take->shipping_city = $request->input('shipping_city');
+        $take->shipping_phone = $request->input('shipping_phone');
+        $take->shipping_notes = $request->input('shipping_notes');
+
+        $take->grand_total=\Cart::getSubTotal();
+        $take->item_count = \Cart::getContent()->count();
+
+        $take->user = session()->get('username');
+        $take->save();
+
+
+
         //dd('order created',$order);
 
         $cartItems = \Cart::getContent();
@@ -72,6 +91,10 @@ class OrderController extends Controller
                 'quantity'=> $item->quantity
             ]);
         }
+
+        
+
+
 
         \Cart::clear();
 
