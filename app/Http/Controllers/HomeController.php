@@ -60,8 +60,18 @@ class HomeController extends Controller
 
     }
 
-    function update($id, Request $request){
+    function update( Request $request, $id){
 
+        request()->validate([
+        'name' => 'required|string|max:100',
+        'username' => 'required|string|max:100',
+        'password' => 'required|min:4',
+        'phone' => 'required|string',
+        'email' => 'required|email',
+        'address' => 'required|string|max:200',
+        //'image' => 'required|mimes:jpeg,jpg,png|max:5000',
+        'membership' => 'string|min:4',
+        ]);
 
         $user = Customer::find($id);
         $user->name         = $request->name;
@@ -152,6 +162,12 @@ class HomeController extends Controller
         header('Content-Type: application/xls');
         header('Content-Disposition: attachment; filename=menu.xls');
         echo $proData;
+    }
+
+    public function userHistory(Request $request)
+    {
+        $data = DB::table('orders')->where('user',$request->session()->get('username'))->get();
+            return view('home.userHistory', compact('data'));
     }
 
 

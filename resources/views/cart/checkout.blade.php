@@ -11,6 +11,11 @@
 		<div class="form-group">
 		<td><label for="firstname">Full Name</label></td>
 		<td><input type="text" name="shipping_name" id="" class="form-control"></td>
+		<td style="color: red">
+			@error('shipping_name')
+                    <strong>{{ $message }}</strong>
+            @enderror
+		</td>
 		</div>
 	</tr>
 
@@ -18,6 +23,11 @@
 	<div class="form-group">
 		<td><label>Address</label></td>
 		<td><input type="text" name="shipping_address" id="" class="form-control"></td>
+		<td style="color: red">
+			@error('shipping_address')
+                    <strong>{{ $message }}</strong>
+            @enderror
+		</td>
 	</div>
 	</tr>
 
@@ -25,6 +35,11 @@
 		<div class="form-group">
 		<td><label>City</label></td>
 		<td><input type="text" name="shipping_city" id="" class="form-control"></td>
+		<td style="color: red">
+		@error('shipping_city')
+   	        <strong>{{ $message }}</strong>
+        @enderror
+    	</td>
 		</div>
 	</tr>
 
@@ -32,6 +47,10 @@
 		<div class="form-group">
 		<td><label>Phone</label></td>
 		<td><input type="text" name="shipping_phone" id="" class="form-control"></td>
+		<td style="color: red">@error('shipping_phone')
+            <strong>{{ $message }}</strong>
+        @enderror
+    	</td>
 		</div>
 	</tr>
 

@@ -20,7 +20,7 @@
               <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
                 <a class="dropdown-item" href="shop.html">Shop</a>
-                <a class="dropdown-item" href="product-single.html">Single Product</a>
+                <a class="dropdown-item" href="{{route('home.userHistory')}}">History</a>
                 <a class="dropdown-item" href="room.html">Cart</a>
                 <a class="dropdown-item" href="checkout.html">Checkout</a>
               </div>

@@ -55,11 +55,18 @@
 				<td><input type="password" name="password"></td>
 			</tr>
 			<tr>
-				<td></td>
+
+				<td>     
+        </td>
 				<td><input type="submit" name="submit" value="Submit"></td>
+         
+        
 			</tr>
       <tr><td><a href="login/facebook/callback" class="btn bg-dark">Facebook</td></tr>
 		</table>
+    <h4 style="color: red">@foreach($errors->all() as $err)
+        {{$err}} <br>
+        @endforeach
 		</fieldset>
 	</form>
 </body>

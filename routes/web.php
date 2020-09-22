@@ -63,6 +63,8 @@ Route::middleware(['sess'])->group(function(){
 		
 		Route::get('/menu/food', 'HomeController@menu')->name('home.food');
 		Route::get('/download/{id}','HomeController@download');
+		Route::get('/history','HomeController@userHistory')->name('home.userHistory');
+
 		//cart
 		Route::get('/export','CartController@export');
 		Route::get('/cart', 'CartController@index')->name('cart.index');

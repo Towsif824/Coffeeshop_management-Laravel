@@ -14,31 +14,52 @@
 		{{csrf_field()}}
 		<table>
 			<tr>
-				<td>Namename</td>
+				<td>Name</td>
 				<td><input type="text" name="name" value="{{$user->name}}"></td>
+				<td>@error('name')
+                    <strong>{{ $message }}</strong>
+            @enderror</td>
 			</tr>
 			<tr>
 				<td>Username</td>
 				<td><input type="text" name="username" value="{{$user->username}}"></td>
+				<td>@error('username')
+                    <strong>{{ $message }}</strong>
+            @enderror</td>
 			</tr>
 			<tr>
 				<td>Password</td>
 				<td><input type="password" name="password" value="{{$user->password}}"></td>
+				<td>@error('password')
+                    <strong>{{ $message }}</strong>
+            @enderror</td>
 			</tr>
 
 			<tr>
 				<td>Phone</td>
 				<td><input type="text" name="phone" value="{{$user->phone}}"></td>
+				<td>@error('phone')
+                    <strong>{{ $message }}</strong>
+            		@enderror
+            	</td>
 			</tr>
 
 			
 			<tr>
 				<td>Email</td>
 				<td><input type="text" name="email" value="{{$user->email}}"></td>
+				<td>@error('email')
+                    <strong>{{ $message }}</strong>
+            		@enderror
+            	</td>
 			</tr>
 			<tr>
 				<td>Address</td>
 				<td><input type="text" name="address" value="{{$user->address}}"></td>
+				<td>@error('address')
+                    <strong>{{ $message }}</strong>
+            		@enderror
+            	</td>
 			</tr>
 			<tr>
 				<td>Image</td>
@@ -46,10 +67,18 @@
 					<img src="{{$user->image}}"><br>
 					<input type="hidden" name="old_photo" value="{{$user->image}}">
 				</td>
+				<td>@error('image')
+                    <strong>{{ $message }}</strong>
+            		@enderror
+            	</td>
 			</tr>
 			<tr>
 				<td>MemberShip</td>
 				<td><input type="text" name="membership" value="{{$user->membership}}" ></td>
+				<td>@error('membership')
+                    <strong>{{ $message }}</strong>
+            		@enderror
+            	</td>
 			</tr>
 			<tr>
 				<td></td>

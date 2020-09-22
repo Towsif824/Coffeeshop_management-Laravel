@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
+use Validator;
 
 
 
@@ -18,8 +19,24 @@ class LoginController extends Controller
     }
 
     function verify(Request $request){
-    	
+    	 $validation = Validator::make($request->all(), [
+            'username'=>'bail|required|exists:customers,username',
+            'password'=>'required|exists:customers,password'
+         ]);
         
+        if($validation->fails()){
+            return back()
+                    ->with('errors', $validation->errors())
+                    ->withInput();
+
+            return redirect()->route('/login')
+                            ->with('errors', $validation->errors())
+                            ->withInput();
+            }
+            else{
+
+
+
         $data = DB::table('customers')
                     ->where('username', $request->username)
                     ->where('password', $request->password)
@@ -36,6 +53,7 @@ class LoginController extends Controller
             return redirect()->route('login.index');
         }
     }
+}
 
      public function redirectToProvider()
     {
