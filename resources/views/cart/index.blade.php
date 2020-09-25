@@ -15,23 +15,15 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active"><a href="{{route('home.index')}}" class="nav-link">Profile</a></li>
             <li class="nav-item"><a href="{{route('home.food')}}" class="nav-link">Menu</a></li>
-            <li class="nav-item"><a href="{{('register')}}" class="nav-link">Register</a></li>
-            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+              <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Others</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="shop.html">Shop</a>
-                <a class="dropdown-item" href="product-single.html">Single Product</a>
-                <a class="dropdown-item" href="room.html">Cart</a>
-                <a class="dropdown-item" href="checkout.html">Checkout</a>
+                <a class="dropdown-item" href="/download/{id}">Download Menu</a>
+                <a class="dropdown-item" href="{{route('home.userHistory')}}">History</a>
               </div>
             </li>
             <li class="nav-item"><a href="{{route('logout.index')}}" class="nav-link">LogOut</a></li>
-            <li class="nav-item cart"><a href="{{route('cart.index')}}" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center">
-            <small>
-            	{{Cart::getContent()->count()}}
-            </small></span></a></li>
+            <li class="nav-item cart"><a href="{{route('cart.index')}}" class="nav-link"><span class="icon icon-shopping_cart"></span><span class="bag d-flex justify-content-center align-items-center"><small>{{Cart::getContent()->count()}}</small></span></a></li>
           </ul>
         </div>
       </div>

@@ -14,9 +14,7 @@
               <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Others</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
                 <a class="dropdown-item" href="/download/{id}">Download Menu</a>
-                <a class="dropdown-item" href="product-single.html">Single Product</a>
-                <a class="dropdown-item" href="room.html">Cart</a>
-                <a class="dropdown-item" href="checkout.html">Checkout</a>
+                <a class="dropdown-item" href="{{route('home.userHistory')}}">History</a>
               </div>
             </li>
             <li class="nav-item"><a href="{{route('logout.index')}}" class="nav-link">LogOut</a></li>

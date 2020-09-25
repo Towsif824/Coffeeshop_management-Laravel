@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Food;
+use App\Order;
 use Illuminate\Support\Facades\DB;
 
 //use Validator;
@@ -129,7 +130,6 @@ class HomeController extends Controller
 
       public function search($id){
 
-
         $userinfo = Food::all();
         $food = Food::where('name','like','%'.$id.'%')
        ->get();
@@ -169,6 +169,17 @@ class HomeController extends Controller
         $data = DB::table('orders')->where('user',$request->session()->get('username'))->get();
             return view('home.userHistory', compact('data'));
     }
+
+    public function Ordersearch($id){
+
+
+        $userinfo = Order::all();
+        $order = Order::where('user','like','%'.$id.'%')
+       ->get();
+       //return response()->json(array('food'=> $food), 200);
+       return view('search.Ordersearch')->with(['order'=>$order]);
+       //print_r($order);
+     }
 
 
     

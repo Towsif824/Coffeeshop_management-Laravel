@@ -31,18 +31,12 @@ Route::get('login/facebook/callback', 'LoginController@handleProviderCallback');
 
 
 Route::get('/login', 'LoginController@index')->name('login.index');
+
 Route::post('/login', ['uses'=>'LoginController@verify']);
 Route::get('/logout', ['as'=>'logout.index', 'uses'=>'logoutController@index']);
 
 //Route::get('/login/facebook/callback', 'HomeController@index')->name('home.index');
 
-/*Route::group(['middleware'=>'sess'], function(){
-	Route::get('/home', 'HomeController@index')->middleware('sess');
-	Route::get('/home/edit/{id}', 'HomeController@edit')->middleware('sess');
-	Route::post('/home/edit/{id}', 'HomeController@update')->middleware('sess');
-	Route::get('/home/delete/{id}', 'HomeController@delete')->middleware('sess');
-	Route::post('/home/delete/{id}', 'HomeController@destroy')->middleware('sess');
-});*/
 
 Route::middleware(['sess'])->group(function(){
 
@@ -59,6 +53,7 @@ Route::middleware(['sess'])->group(function(){
 		//search
 		//Route::get('/foodsearch/{id}','HomeController@foodsearch');
 		Route::get('/search/{id}', 'HomeController@search')->name('topicDetails');
+		Route::get('/Ordersearch/{id}', 'HomeController@Ordersearch')->name('orderDetails');
 		//Route::post('/search', 'HomeController@find')->name('search.search');
 		
 		Route::get('/menu/food', 'HomeController@menu')->name('home.food');
